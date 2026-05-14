@@ -622,10 +622,10 @@
   @media (max-width: 1024px) {
     .feature-cards-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .feature-cards { padding: 16px 12px 56px; }
-    .feature-cards-grid { grid-template-columns: 1fr; gap: 12px; }
-    .feature-card { aspect-ratio: 4/3; }
+    .feature-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .feature-card { aspect-ratio: 3/4; }
 
     /* Boundless-mobile: tag + heading at top, description at bottom */
     .feature-card-content {
@@ -652,9 +652,9 @@
 
     .feature-card-arrow { display: inline-flex; }
 
-    .feature-card-tag { margin-bottom: 0; }
+    .feature-card-tag { margin-bottom: 0; white-space: nowrap; font-size: 10px; padding: 3px 8px; letter-spacing: 0.08em; }
     .feature-card h3 { font-size: 32px; margin-top: 4px; }
-    .feature-card.stat h3 { font-size: 72px; margin-top: 4px; }
+    .feature-card.stat h3 { font-size: 52px; margin-top: 4px; }
   }
 
   /* ===== AMBITION QUOTE ===== */
@@ -2050,6 +2050,157 @@
     margin-bottom: 18px;
   }
 
+  /* ===== TERMS MODAL ===== */
+  .terms-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .terms-modal.open { display: flex; }
+  .terms-modal-card {
+    background: white;
+    border-radius: 20px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  }
+  .terms-modal-header {
+    padding: 28px 32px 16px;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  .terms-modal-header h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+  .terms-modal-header p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .terms-modal-body {
+    padding: 20px 32px;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .terms-modal-body h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .terms-modal-body .company-info {
+    background: #F7F3F0;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .terms-modal-body .company-info strong { font-weight: 600; }
+  .terms-modal-body .terms-item {
+    margin-bottom: 16px;
+  }
+  .terms-modal-body .terms-item h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+  .terms-modal-body .terms-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+  }
+  .terms-modal-footer {
+    padding: 16px 32px 24px;
+    border-top: 1px solid #E5E7EB;
+    background: white;
+  }
+  .terms-agree {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  .terms-agree input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--red);
+    cursor: pointer;
+  }
+  .terms-disclaimer {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .terms-pay-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--red);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.18s ease, opacity 0.18s ease;
+  }
+  .terms-pay-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .terms-pay-btn:not(:disabled):hover { background: var(--red-dark); }
+  .terms-back {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 8px;
+  }
+  .terms-back:hover { color: var(--ink); }
+  @media (max-width: 600px) {
+    .terms-modal { padding: 12px; }
+    .terms-modal-card { max-height: 95vh; border-radius: 16px; }
+    .terms-modal-header { padding: 20px 20px 14px; }
+    .terms-modal-header h3 { font-size: 18px; }
+    .terms-modal-body { padding: 16px 20px; }
+    .terms-modal-footer { padding: 14px 20px 18px; }
+  }
+
   /* ===== FOOTER ===== */
   footer {
     background: var(--navy-dark);
@@ -2181,7 +2332,7 @@
       <div class="feature-card-content">
         <span class="feature-card-tag">Step by step</span>
         <h3>6</h3>
-        <p>hỗ trợ toàn diện</p>
+        <p>Bước hỗ trợ toàn diện</p>
       </div>
     </div>
     <div class="feature-card stat">
@@ -2191,7 +2342,7 @@
       <div class="feature-card-content">
         <span class="feature-card-tag">Security</span>
         <h3>100%</h3>
-        <p>bảo mật thông tin</p>
+        <p>Bảo mật thông tin</p>
       </div>
     </div>
     <div class="feature-card stat">
@@ -2201,7 +2352,7 @@
       <div class="feature-card-content">
         <span class="feature-card-tag">Price</span>
         <h3>$500</h3>
-        <p>trọn gói cả phí chính phủ</p>
+        <p>Trọn gói cả phí chính phủ</p>
       </div>
     </div>
     <div class="feature-card">
@@ -2823,6 +2974,97 @@
       card.innerHTML = `<iframe src="${src}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="width:100%;height:100%;border:0;display:block;"></iframe>`;
     });
   });
+
+</script>
+
+<!-- ===== TERMS MODAL ===== -->
+<div class="terms-modal" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+  <div class="terms-modal-card">
+    <div class="terms-modal-header">
+      <h3 id="termsTitle">Xác Nhận Điều Khoản Dịch Vụ</h3>
+      <p>Vui lòng đọc kỹ và xác nhận các điều khoản dưới đây trước khi tiến hành thanh toán.</p>
+    </div>
+    <div class="terms-modal-body">
+      <h4>Thông tin đơn vị cung cấp dịch vụ</h4>
+      <div class="company-info">
+        <div><strong>Tên công ty:</strong> Francis International Training &amp; Consulting LLC</div>
+        <div><strong>Địa chỉ:</strong> 2717 Commercial Center Blvd, Katy, Texas 77494, USA</div>
+        <div><strong>Điện thoại:</strong> (+1) 713 377 6165</div>
+        <div><strong>Đại diện:</strong> Francis Hung Vuong — Managing Director</div>
+      </div>
+      <h4>Nội dung điều khoản</h4>
+      <div class="terms-item">
+        <h5>1. Phạm vi dịch vụ</h5>
+        <p>Dịch vụ bao gồm: tư vấn &amp; đánh giá hồ sơ, hướng dẫn chuẩn bị giấy tờ, hỗ trợ điền đơn DS-160, hỗ trợ thanh toán phí lãnh sự &amp; đặt lịch phỏng vấn, luyện phỏng vấn visa Mỹ và tư vấn trước ngày phỏng vấn. Dịch vụ KHÔNG bao gồm: phí dịch thuật, chi phí di chuyển và các khoản phát sinh ngoài hồ sơ.</p>
+      </div>
+      <div class="terms-item">
+        <h5>2. Miễn trừ trách nhiệm</h5>
+        <p>Francis International Training &amp; Consulting LLC không đảm bảo kết quả đậu visa. Quyết định cấp visa hoàn toàn thuộc thẩm quyền của Lãnh sự quán Hoa Kỳ. Khách hàng hiểu rõ và chấp nhận rủi ro này trước khi sử dụng dịch vụ.</p>
+      </div>
+      <div class="terms-item">
+        <h5>3. Phí dịch vụ &amp; thanh toán</h5>
+        <p>Tổng phí dịch vụ là 500 USD, thanh toán một lần khi ký hợp đồng bằng tiền mặt hoặc chuyển khoản vào tài khoản công ty tại Mỹ. Phí dịch vụ không hoàn lại trừ khi có thỏa thuận khác bằng văn bản.</p>
+      </div>
+      <div class="terms-item">
+        <h5>4. Trách nhiệm của khách hàng</h5>
+        <p>Khách hàng cam kết cung cấp thông tin trung thực, đầy đủ, gửi hồ sơ đúng thời hạn và tuân thủ quy trình tư vấn. Khách hàng chịu hoàn toàn trách nhiệm về tính chính xác của thông tin khai báo.</p>
+      </div>
+      <div class="terms-item">
+        <h5>5. Bảo mật thông tin</h5>
+        <p>Thông tin cá nhân của khách hàng được sử dụng cho mục đích xử lý hồ sơ visa và được bảo mật tuyệt đối, không chia sẻ với bất kỳ bên thứ ba nào.</p>
+      </div>
+      <div class="terms-item">
+        <h5>6. Chấm dứt hợp đồng</h5>
+        <p>Hợp đồng có thể chấm dứt nếu một trong hai bên vi phạm điều khoản đã thỏa thuận. Mọi sửa đổi điều khoản phải được lập thành văn bản và có chữ ký của cả hai bên.</p>
+      </div>
+    </div>
+    <div class="terms-modal-footer">
+      <label class="terms-agree">
+        <input type="checkbox" id="termsAgree">
+        <span>Tôi đã đọc, hiểu và đồng ý với toàn bộ <strong>Điều Khoản &amp; Điều Kiện Dịch Vụ</strong> của Francis International Training &amp; Consulting LLC.</span>
+      </label>
+      <p class="terms-disclaimer">Bằng cách tick ô trên và bấm "Tiến Hành Thanh Toán", bạn xác nhận đã đọc và chấp nhận toàn bộ điều khoản nêu trên.</p>
+      <button type="button" class="terms-pay-btn" id="termsPay" disabled>
+        <span>Tiến Hành Thanh Toán</span>
+        <span>→</span>
+      </button>
+      <button type="button" class="terms-back" id="termsBack">← Quay lại chỉnh sửa thông tin</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const modal = document.getElementById('termsModal');
+    const agree = document.getElementById('termsAgree');
+    const payBtn = document.getElementById('termsPay');
+    const backBtn = document.getElementById('termsBack');
+    const form = document.querySelector('#form form');
+    if (!modal || !form) return;
+
+    const open = () => {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const close = () => {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      open();
+    });
+
+    agree.addEventListener('change', () => { payBtn.disabled = !agree.checked; });
+    backBtn.addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+    payBtn.addEventListener('click', () => {
+      alert('Chuyển sang trang thanh toán...');
+    });
+  })();
 </script>
 
 </body>
