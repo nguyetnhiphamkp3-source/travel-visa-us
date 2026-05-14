@@ -627,34 +627,36 @@
     .feature-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .feature-card { aspect-ratio: 3/4; }
 
-    /* Boundless-mobile: tag + heading at top, description at bottom */
+    /* Boundless-mobile: all content at bottom */
     .feature-card-content {
       inset: 0;
-      padding: 22px;
-      padding-right: 68px;  /* room for arrow */
+      padding: 14px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      justify-content: flex-end;
     }
     .feature-card p {
-      margin-top: auto;        /* push description to bottom */
       padding-right: 0;
+      font-size: 11px;
+      line-height: 1.35;
+      text-wrap: balance;
     }
 
-    /* Overlay: dark top + clear middle + dark bottom */
+    /* Overlay: clear top + heavy dark bottom for text contrast */
     .feature-card-overlay {
       background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0.50) 0%,
-        rgba(0, 0, 0, 0.10) 28%,
-        rgba(0, 0, 0, 0.10) 65%,
-        rgba(0, 0, 0, 0.70) 100%);
+        rgba(0, 0, 0, 0.20) 0%,
+        rgba(0, 0, 0, 0) 28%,
+        rgba(0, 0, 0, 0) 45%,
+        rgba(0, 0, 0, 0.90) 100%);
     }
 
     .feature-card-arrow { display: inline-flex; }
 
     .feature-card-tag { margin-bottom: 0; white-space: nowrap; font-size: 10px; padding: 3px 8px; letter-spacing: 0.08em; }
-    .feature-card h3 { font-size: 32px; margin-top: 4px; }
-    .feature-card.stat h3 { font-size: 52px; margin-top: 4px; }
+    .feature-card h3 { font-size: 22px; margin-top: 4px; line-height: 1.15; }
+    .feature-card.stat h3 { font-size: 44px; margin-top: 4px; }
   }
 
   /* ===== AMBITION QUOTE ===== */
@@ -2048,8 +2050,8 @@
   }
   @media (max-width: 768px) {
     .form-section { display: block; padding: 40px 0; }
-    .form-section .container { min-width: 0; }
-    .form-card { padding: 24px 18px; max-width: 100%; }
+    .form-section .container { min-width: 0; padding: 0 10px; }
+    .form-card { padding: 14px; max-width: 100%; }
     .form-card h2 { font-size: 32px; }
     .form-card .btn { font-size: 16px; padding: 14px 20px; }
   }
