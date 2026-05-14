@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare Table — 4 Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #0A3161; --red: #C60000; --gold: #B89248; --cream: #FAF7F2; --ink: #0A0A0A; --muted: #5B6470; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f5f5f7; color: var(--ink); line-height: 1.55; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 60px 24px 120px; }
+  .demo-block { margin-bottom: 100px; }
+  .demo-label { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 8px; }
+  .demo-label small { display: block; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--muted); font-style: normal; margin-top: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .demo-desc { font-size: 14px; color: var(--muted); margin-bottom: 28px; max-width: 720px; }
+
+  /* ==================== OPTION 1 — PREMIUM MINIMALIST ==================== */
+  .opt1 { background: white; padding: 40px; }
+  .opt1-row { display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: stretch; }
+  .opt1-row.head { border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-bottom: 4px; }
+  .opt1-cell { padding: 20px 24px; font-size: 15px; }
+  .opt1-row.head .opt1-cell { font-family: 'Instrument Serif', serif; font-size: 24px; font-style: italic; padding-bottom: 0; padding-top: 0; }
+  .opt1-row.head .opt1-us { font-style: normal; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); }
+  .opt1-row:not(.head) { border-bottom: 1px solid #E8E8EA; }
+  .opt1-row:not(.head):last-child { border-bottom: none; }
+  .opt1-label { color: var(--muted); font-weight: 500; }
+  .opt1-diy { color: var(--muted); }
+  .opt1-us { color: var(--ink); font-weight: 500; border-left: 1px solid #E8E8EA; border-right: 1px solid #E8E8EA; background: linear-gradient(180deg, rgba(198,0,0,0.025), transparent); }
+  .opt1-row:not(.head) .opt1-diy::before { content: '—'; color: #C5C5C8; margin-right: 8px; }
+  .opt1-row:not(.head) .opt1-us::before { content: '✓'; color: var(--red); font-weight: 700; margin-right: 10px; }
+
+  /* ==================== OPTION 2 — GLASS CARDS ==================== */
+  .opt2 { background: linear-gradient(135deg, #f0f4ff 0%, #fff5f5 100%); padding: 60px 40px; border-radius: 24px; }
+  .opt2-grid { display: grid; grid-template-columns: 0.9fr 1.1fr 1fr; gap: 20px; }
+  .opt2-col { background: rgba(255,255,255,0.65); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.8); border-radius: 20px; padding: 8px; box-shadow: 0 4px 24px rgba(15, 23, 42, 0.04); }
+  .opt2-col.featured { background: white; box-shadow: 0 20px 60px rgba(198, 0, 0, 0.12); transform: translateY(-12px); border: 1px solid rgba(198,0,0,0.15); }
+  .opt2-head { padding: 24px 20px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--muted); border-bottom: 1px solid rgba(15,23,42,0.08); }
+  .opt2-col.featured .opt2-head { color: var(--red); font-size: 16px; }
+  .opt2-cell { padding: 18px 20px; font-size: 14.5px; border-bottom: 1px solid rgba(15,23,42,0.05); }
+  .opt2-cell:last-child { border-bottom: none; }
+  .opt2-col:not(.featured) .opt2-cell { color: var(--muted); }
+  .opt2-col.featured .opt2-cell { color: var(--ink); font-weight: 500; }
+  .opt2-col.label .opt2-cell { font-weight: 600; color: var(--ink); }
+  .opt2-col:not(.label):not(.featured) .opt2-cell::before { content: '✕'; color: #C5C5C8; margin-right: 10px; font-weight: 700; }
+  .opt2-col.featured .opt2-cell::before { content: '✓'; color: var(--red); margin-right: 10px; font-weight: 700; }
+
+  /* ==================== OPTION 3 — DARK LUXURY ==================== */
+  .opt3 { background: #0d1a2e; padding: 48px; border-radius: 20px; color: #E8ECF2; }
+  .opt3-row { display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: stretch; }
+  .opt3-cell { padding: 22px 24px; font-size: 15px; position: relative; }
+  .opt3-row.head .opt3-cell { font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8B95A8; padding-bottom: 24px; }
+  .opt3-row.head .opt3-us { color: var(--gold); font-size: 14px; }
+  .opt3-row:not(.head) { border-top: 1px solid rgba(255,255,255,0.08); }
+  .opt3-label { color: #C8CEDB; font-weight: 500; }
+  .opt3-diy { color: #6B7588; }
+  .opt3-us { background: linear-gradient(180deg, rgba(184,146,72,0.08), rgba(184,146,72,0.03)); color: white; font-weight: 500; border-left: 1px solid rgba(184,146,72,0.3); border-right: 1px solid rgba(184,146,72,0.3); }
+  .opt3-row:first-child .opt3-us { border-top: 1px solid rgba(184,146,72,0.3); border-top-left-radius: 8px; border-top-right-radius: 8px; }
+  .opt3-row:last-child .opt3-us { border-bottom: 1px solid rgba(184,146,72,0.3); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
+  .opt3-row:not(.head) .opt3-diy::before { content: '✕'; color: #4A5363; margin-right: 10px; font-weight: 700; }
+  .opt3-row:not(.head) .opt3-us::before { content: '✓'; color: var(--gold); margin-right: 10px; font-weight: 700; }
+
+  /* ==================== OPTION 4 — EDITORIAL / MAGAZINE ==================== */
+  .opt4 { background: var(--cream); padding: 56px 48px; }
+  .opt4-row { display: grid; grid-template-columns: 1.1fr 1.2fr 1fr; align-items: baseline; padding: 26px 0; border-bottom: 1px solid #DDD2C0; }
+  .opt4-row:last-child { border-bottom: none; }
+  .opt4-row.head { border-bottom: 2px solid var(--ink); padding-bottom: 20px; margin-bottom: 8px; }
+  .opt4-row.head .opt4-cell { font-family: 'Instrument Serif', serif; font-size: 32px; line-height: 1; font-style: italic; }
+  .opt4-row.head .opt4-cell.opt4-us { color: var(--red); font-weight: 400; }
+  .opt4-row.head .opt4-cell.opt4-label { font-style: normal; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .opt4-cell { font-size: 15px; padding-right: 24px; }
+  .opt4-label { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: var(--ink); }
+  .opt4-diy { color: var(--muted); }
+  .opt4-us { color: var(--ink); font-weight: 500; padding-left: 24px; border-left: 2px solid var(--red); }
+  .opt4-row:not(.head) .opt4-diy::before { content: '— '; color: #C5B89C; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Option 1 -->
+  <div class="demo-block">
+    <div class="demo-label">Option 1<small>Premium Minimalist · Serif + thin lines</small></div>
+    <p class="demo-desc">Phong cách tối giản, dùng Instrument Serif cho label hạng mục. Cột giữa nổi nhẹ bằng đường viền và gradient mờ. Cảm giác như báo cao cấp.</p>
+    <div class="opt1">
+      <div class="opt1-row head"><div class="opt1-cell opt1-label">Hạng mục</div><div class="opt1-cell opt1-us">Dùng dịch vụ chúng tôi</div><div class="opt1-cell opt1-diy" style="font-family:'Inter';font-style:normal;font-size:15px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">Tự làm</div></div>
+      <div class="opt1-row"><div class="opt1-cell opt1-label">Hiểu đúng quy trình từ đầu</div><div class="opt1-cell opt1-us">Được hướng dẫn rõ ràng ngay từ buổi đầu</div><div class="opt1-cell opt1-diy">Mò mẫm từng bước</div></div>
+      <div class="opt1-row"><div class="opt1-cell opt1-label">Điền form DS-160</div><div class="opt1-cell opt1-us">Đội ngũ kiểm tra & điền chính xác 100%</div><div class="opt1-cell opt1-diy">Dễ sai, không biết sai ở đâu</div></div>
+      <div class="opt1-row"><div class="opt1-cell opt1-label">Chuẩn bị hồ sơ</div><div class="opt1-cell opt1-us">Danh sách chi tiết theo từng trường hợp</div><div class="opt1-cell opt1-diy">Không biết thiếu gì, thừa gì</div></div>
+      <div class="opt1-row"><div class="opt1-cell opt1-label">Luyện phỏng vấn</div><div class="opt1-cell opt1-us">Mô phỏng thực tế, chỉnh điểm yếu trước ngày thi</div><div class="opt1-cell opt1-diy">Không có ai hướng dẫn</div></div>
+      <div class="opt1-row"><div class="opt1-cell opt1-label">Hỗ trợ khi phát sinh vấn đề</div><div class="opt1-cell opt1-us">Đội ngũ sẵn sàng hỗ trợ xuyên suốt</div><div class="opt1-cell opt1-diy">Tự xử lý một mình</div></div>
+      <div class="opt1-row"><div class="opt1-cell opt1-label">Tâm lý trước phỏng vấn</div><div class="opt1-cell opt1-us">Tự tin vì đã được chuẩn bị kỹ</div><div class="opt1-cell opt1-diy">Lo lắng, không biết đã đủ chưa</div></div>
+    </div>
+  </div>
+
+  <!-- Option 2 -->
+  <div class="demo-block">
+    <div class="demo-label">Option 2<small>Glass Cards · Floating featured column</small></div>
+    <p class="demo-desc">Mỗi cột là 1 card riêng với hiệu ứng glass/blur. Cột giữa lift lên cao hơn với shadow đậm. Cảm giác hiện đại, premium tech.</p>
+    <div class="opt2">
+      <div class="opt2-grid">
+        <div class="opt2-col label">
+          <div class="opt2-head">Hạng mục</div>
+          <div class="opt2-cell">Hiểu đúng quy trình từ đầu</div>
+          <div class="opt2-cell">Điền form DS-160</div>
+          <div class="opt2-cell">Chuẩn bị hồ sơ</div>
+          <div class="opt2-cell">Luyện phỏng vấn</div>
+          <div class="opt2-cell">Hỗ trợ khi phát sinh vấn đề</div>
+          <div class="opt2-cell">Tâm lý trước phỏng vấn</div>
+        </div>
+        <div class="opt2-col featured">
+          <div class="opt2-head">Dùng dịch vụ chúng tôi</div>
+          <div class="opt2-cell">Được hướng dẫn rõ ràng ngay từ buổi đầu</div>
+          <div class="opt2-cell">Đội ngũ kiểm tra & điền chính xác 100%</div>
+          <div class="opt2-cell">Danh sách chi tiết theo từng trường hợp</div>
+          <div class="opt2-cell">Mô phỏng thực tế, chỉnh điểm yếu trước ngày thi</div>
+          <div class="opt2-cell">Đội ngũ sẵn sàng hỗ trợ xuyên suốt</div>
+          <div class="opt2-cell">Tự tin vì đã được chuẩn bị kỹ</div>
+        </div>
+        <div class="opt2-col">
+          <div class="opt2-head">Tự làm</div>
+          <div class="opt2-cell">Mò mẫm từng bước</div>
+          <div class="opt2-cell">Dễ sai, không biết sai ở đâu</div>
+          <div class="opt2-cell">Không biết thiếu gì, thừa gì</div>
+          <div class="opt2-cell">Không có ai hướng dẫn</div>
+          <div class="opt2-cell">Tự xử lý một mình</div>
+          <div class="opt2-cell">Lo lắng, không biết đã đủ chưa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 3 -->
+  <div class="demo-block">
+    <div class="demo-label">Option 3<small>Dark Luxury · Navy + gold accents</small></div>
+    <p class="demo-desc">Nền tối navy đậm với điểm nhấn vàng kim. Cột giữa được viền vàng nhẹ. Phong cách như brand cao cấp (đồng hồ, du thuyền).</p>
+    <div class="opt3">
+      <div class="opt3-row head"><div class="opt3-cell opt3-label">Hạng mục</div><div class="opt3-cell opt3-us">Dùng dịch vụ chúng tôi</div><div class="opt3-cell opt3-diy">Tự làm</div></div>
+      <div class="opt3-row"><div class="opt3-cell opt3-label">Hiểu đúng quy trình từ đầu</div><div class="opt3-cell opt3-us">Được hướng dẫn rõ ràng ngay từ buổi đầu</div><div class="opt3-cell opt3-diy">Mò mẫm từng bước</div></div>
+      <div class="opt3-row"><div class="opt3-cell opt3-label">Điền form DS-160</div><div class="opt3-cell opt3-us">Đội ngũ kiểm tra & điền chính xác 100%</div><div class="opt3-cell opt3-diy">Dễ sai, không biết sai ở đâu</div></div>
+      <div class="opt3-row"><div class="opt3-cell opt3-label">Chuẩn bị hồ sơ</div><div class="opt3-cell opt3-us">Danh sách chi tiết theo từng trường hợp</div><div class="opt3-cell opt3-diy">Không biết thiếu gì, thừa gì</div></div>
+      <div class="opt3-row"><div class="opt3-cell opt3-label">Luyện phỏng vấn</div><div class="opt3-cell opt3-us">Mô phỏng thực tế, chỉnh điểm yếu trước ngày thi</div><div class="opt3-cell opt3-diy">Không có ai hướng dẫn</div></div>
+      <div class="opt3-row"><div class="opt3-cell opt3-label">Hỗ trợ khi phát sinh vấn đề</div><div class="opt3-cell opt3-us">Đội ngũ sẵn sàng hỗ trợ xuyên suốt</div><div class="opt3-cell opt3-diy">Tự xử lý một mình</div></div>
+      <div class="opt3-row"><div class="opt3-cell opt3-label">Tâm lý trước phỏng vấn</div><div class="opt3-cell opt3-us">Tự tin vì đã được chuẩn bị kỹ</div><div class="opt3-cell opt3-diy">Lo lắng, không biết đã đủ chưa</div></div>
+    </div>
+  </div>
+
+  <!-- Option 4 -->
+  <div class="demo-block">
+    <div class="demo-label">Option 4<small>Editorial · Cream + serif italic labels</small></div>
+    <p class="demo-desc">Nền kem ấm, label hạng mục dùng Instrument Serif italic. Cột "Dùng dịch vụ" có viền đỏ trái, không cần icon. Đậm chất tạp chí Vogue/NYT.</p>
+    <div class="opt4">
+      <div class="opt4-row head"><div class="opt4-cell opt4-label">Hạng mục</div><div class="opt4-cell opt4-us">Dùng dịch vụ chúng tôi</div><div class="opt4-cell opt4-diy">Tự làm</div></div>
+      <div class="opt4-row"><div class="opt4-cell opt4-label">Hiểu đúng quy trình từ đầu</div><div class="opt4-cell opt4-us">Được hướng dẫn rõ ràng ngay từ buổi đầu</div><div class="opt4-cell opt4-diy">Mò mẫm từng bước</div></div>
+      <div class="opt4-row"><div class="opt4-cell opt4-label">Điền form DS-160</div><div class="opt4-cell opt4-us">Đội ngũ kiểm tra & điền chính xác 100%</div><div class="opt4-cell opt4-diy">Dễ sai, không biết sai ở đâu</div></div>
+      <div class="opt4-row"><div class="opt4-cell opt4-label">Chuẩn bị hồ sơ</div><div class="opt4-cell opt4-us">Danh sách chi tiết theo từng trường hợp</div><div class="opt4-cell opt4-diy">Không biết thiếu gì, thừa gì</div></div>
+      <div class="opt4-row"><div class="opt4-cell opt4-label">Luyện phỏng vấn</div><div class="opt4-cell opt4-us">Mô phỏng thực tế, chỉnh điểm yếu trước ngày thi</div><div class="opt4-cell opt4-diy">Không có ai hướng dẫn</div></div>
+      <div class="opt4-row"><div class="opt4-cell opt4-label">Hỗ trợ khi phát sinh vấn đề</div><div class="opt4-cell opt4-us">Đội ngũ sẵn sàng hỗ trợ xuyên suốt</div><div class="opt4-cell opt4-diy">Tự xử lý một mình</div></div>
+      <div class="opt4-row"><div class="opt4-cell opt4-label">Tâm lý trước phỏng vấn</div><div class="opt4-cell opt4-us">Tự tin vì đã được chuẩn bị kỹ</div><div class="opt4-cell opt4-diy">Lo lắng, không biết đã đủ chưa</div></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
