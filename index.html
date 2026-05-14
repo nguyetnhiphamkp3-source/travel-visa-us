@@ -1032,10 +1032,13 @@
   }
   .story-copy h2 { margin-bottom: 0; }
   .story-main-quote {
-    font-size: 16px;
-    font-weight: 500;
-    font-style: italic;
-    margin-top: 40px;
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 20px;
   }
   .story-copy p { color: var(--muted); line-height: 1.7; }
   .story-copy p + p { margin-top: 16px; }
@@ -1114,6 +1117,55 @@
     margin-top: 26px;
   }
   .story-cta { margin-top: 36px; }
+  .author-mini {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    border-left: 3px solid var(--red);
+    padding-left: 26px;
+  }
+  .author-mini-badge {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+  .author-mini-badge .flags {
+    font-size: 16px;
+    line-height: 1.2;
+    flex-shrink: 0;
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+  .author-mini-badge .badge-label {
+    flex: 1;
+  }
+  .author-mini-name strong {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #000000;
+    line-height: 1.3;
+  }
+  .author-mini-name .vn-name {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #000000;
+  }
+  .author-mini-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+    max-width: 520px;
+  }
   .story-feature {
     display: flex;
     align-items: center;
@@ -1149,8 +1201,9 @@
     .author-card .vn-name { font-size: 28px; }
     .story-lead { font-size: 16px; order: 4; margin-top: 24px; }
     .story-feature-grid { grid-template-columns: 1fr; row-gap: 22px; order: 5; margin-top: 21px; }
-    .story-cta { order: 7; align-self: center; margin-top: 28px; }
-    .story-main-quote { font-size: 16px; text-align: center; order: 6; margin-top: 40px; }
+    .author-mini { order: 7; align-self: flex-start; align-items: flex-start; margin-top: 28px; text-align: left; padding-left: 12px; }
+    .story-cta { order: 8; align-self: flex-start; margin-top: 20px; }
+    .story-main-quote { font-size: 26px; text-align: center; order: 1; margin: 0 0 16px; line-height: 1.25; }
     .story-feature { font-size: 16px; gap: 18px; }
   }
 
@@ -1882,7 +1935,7 @@
 
   /* ===== FORM ===== */
   .form-section {
-    background: linear-gradient(rgba(5, 26, 51, 0.8), rgba(5, 26, 51, 0.8)), url('assets/background-form.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(5, 26, 51, 0.8), rgba(5, 26, 51, 0.8)), url('assets/background-form.webp') center/cover no-repeat;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -2326,7 +2379,7 @@
 <section class="feature-cards">
   <div class="feature-cards-grid">
     <div class="feature-card stat">
-      <img src="assets/card1.jpg" alt="6 bước hỗ trợ">
+      <img src="assets/card1.webp" alt="6 bước hỗ trợ">
       <div class="feature-card-overlay"></div>
       <a href="#form" class="feature-card-arrow" aria-label="Xem thêm">→</a>
       <div class="feature-card-content">
@@ -2336,7 +2389,7 @@
       </div>
     </div>
     <div class="feature-card stat">
-      <img src="assets/card2.jpg" alt="Bảo mật thông tin">
+      <img src="assets/card2.webp" alt="Bảo mật thông tin">
       <div class="feature-card-overlay"></div>
       <a href="#form" class="feature-card-arrow" aria-label="Xem thêm">→</a>
       <div class="feature-card-content">
@@ -2346,7 +2399,7 @@
       </div>
     </div>
     <div class="feature-card stat">
-      <img src="assets/card3.jpg" alt="Giá trọn gói">
+      <img src="assets/card3.webp" alt="Giá trọn gói">
       <div class="feature-card-overlay"></div>
       <a href="#form" class="feature-card-arrow" aria-label="Xem thêm">→</a>
       <div class="feature-card-content">
@@ -2356,7 +2409,7 @@
       </div>
     </div>
     <div class="feature-card">
-      <img src="assets/quotes-image-2.png" alt="Francis Hùng">
+      <img src="assets/quotes-image-2.webp" alt="Francis Hùng">
       <div class="feature-card-overlay"></div>
       <a href="#form" class="feature-card-arrow" aria-label="Xem thêm">→</a>
       <div class="feature-card-content">
@@ -2387,7 +2440,7 @@
 <section id="approach" class="approach-section">
   <div class="approach-grid">
     <div class="approach-image">
-      <img src="assets/image-1.jpg" alt="Tư vấn VISA Mỹ chuyên nghiệp">
+      <img src="assets/image-1.webp" alt="Tư vấn VISA Mỹ chuyên nghiệp">
     </div>
     <div class="approach-content">
     <div class="approach-header">
@@ -2436,7 +2489,7 @@
 <!-- ===== TESTIMONIAL VIDEO SECTION ===== -->
 <section class="testimonial-video-section">
   <div class="testimonial-video-inner">
-    <img src="assets/logo-shynh-group.png" alt="Shynh Group" class="testimonial-logo">
+    <img src="assets/logo-shynh-group.webp" alt="Shynh Group" class="testimonial-logo">
     <blockquote class="testimonial-quote">
       Sau bao nhiêu năm tháng làm việc vất vả của anh thì ngày hôm nay Shynh đã có trên tay thành quả, và thật sự trong lòng rất là vui, giống như là mình unbox bất cứ món đồ hiệu xa xỉ nào cũng không bằng…
     </blockquote>
@@ -2459,12 +2512,7 @@
     <div class="story-grid">
       <div class="story-content">
         <div class="story-copy">
-          <div class="story-badge">
-            <span class="badge-text">Người Việt đầu tiên được Chính phủ Mỹ công nhận Nhân Tài</span>
-          </div>
-          <div class="author-card">
-            <strong>Francis Hùng<span class="vn-name">Vương Hữu Hùng</span></strong>
-          </div>
+          <h2 class="story-main-quote">"Tôi hiểu cảm giác đứng trước cánh cửa nước Mỹ mà không biết gõ thế nào cho đúng."</h2>
           <p class="story-lead">Tự tin bước vào buổi phỏng vấn Lãnh sự quán Mỹ. Quy trình của chúng tôi giúp bạn chuẩn bị cách trả lời thuyết phục, rõ ràng và đúng trọng tâm — để công sức cả năm không bị đánh đổi chỉ vì một câu trả lời thiếu chuẩn bị.</p>
           <div class="story-feature-grid">
             <div class="story-feature">
@@ -2484,6 +2532,13 @@
               <span>Hiểu cả văn hóa Việt–Mỹ</span>
             </div>
           </div>
+          <div class="author-mini">
+            <div class="author-mini-name">
+              <strong>Francis Hùng - <span class="vn-name">VƯƠNG HỮU HÙNG</span></strong>
+            </div>
+            <p class="author-mini-desc">Chuyên gia tư vấn chiến lược. Diễn giả. Đã đào tạo hơn 1.000 doanh nghiệp lớn như Sony, Intel, Mercedes-Benz, Vingroup,...</p>
+            <span class="author-mini-badge"><span class="flags">🇻🇳🇺🇸</span><span class="badge-label">Người Việt đầu tiên được Chính phủ Mỹ công nhận Nhân Tài</span></span>
+          </div>
           <a href="#form" class="quote-cta story-cta">
             <span>Đăng ký tư vấn ngay</span>
             <span class="arrow">→</span>
@@ -2491,7 +2546,7 @@
         </div>
       </div>
       <div class="story-img">
-        <img src="assets/quotes-image-2.png" alt="Francis Hùng">
+        <img src="assets/quotes-image-2.webp" alt="Francis Hùng">
       </div>
     </div>
   </div>
@@ -2528,7 +2583,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
       </span>
       <div class="step-row">
-        <div class="step-left"><div class="step-left-img"><img src="assets/s1.jpg" alt="Tư vấn hồ sơ"></div></div>
+        <div class="step-left"><div class="step-left-img"><img src="assets/s1.webp" alt="Tư vấn hồ sơ"></div></div>
         <div class="step-mid"><span class="step-dot">01</span></div>
         <div class="step-right"><h3>Tư vấn & đánh giá hồ sơ</h3><p>Bạn cung cấp thông tin cơ bản, chúng tôi đánh giá khả năng đậu VISA, xác định loại VISA phù hợp và vạch lộ trình chuẩn bị tối ưu cho từng trường hợp.</p></div>
       </div>
@@ -2538,12 +2593,12 @@
         <div class="step-right"><h3>Hướng dẫn chuẩn bị hồ sơ</h3><p>Danh sách giấy tờ chi tiết theo đúng hồ sơ của bạn: hộ chiếu, chứng minh thu nhập, tài chính, thư mời. Không thiếu, không thừa.</p></div>
       </div>
       <div class="step-row">
-        <div class="step-left"><div class="step-left-img"><img src="assets/s3.jpg" alt="Điền đơn DS-160"></div></div>
+        <div class="step-left"><div class="step-left-img"><img src="assets/s3.webp" alt="Điền đơn DS-160"></div></div>
         <div class="step-mid"><span class="step-dot">03</span></div>
         <div class="step-right"><h3>Điền đơn DS-160 & tạo hồ sơ</h3><p>Chúng tôi hỗ trợ điền form DS-160 chính xác 100%, kiểm tra kỹ từng trường thông tin, đặt lịch phỏng vấn và hướng dẫn thanh toán phí lãnh sự.</p></div>
       </div>
       <div class="step-row featured">
-        <div class="step-left"><div class="step-left-img"><img src="assets/s4.jpg" alt="Luyện phỏng vấn"></div></div>
+        <div class="step-left"><div class="step-left-img"><img src="assets/s4.webp" alt="Luyện phỏng vấn"></div></div>
         <div class="step-mid"><span class="step-dot">04</span></div>
         <div class="step-right">
           <span class="step-tag">⭐ Quan trọng nhất</span>
@@ -2552,12 +2607,12 @@
         </div>
       </div>
       <div class="step-row">
-        <div class="step-left"><div class="step-left-img"><img src="assets/s5.jpg" alt="Hỗ trợ phỏng vấn"></div></div>
+        <div class="step-left"><div class="step-left-img"><img src="assets/s5.webp" alt="Hỗ trợ phỏng vấn"></div></div>
         <div class="step-mid"><span class="step-dot">05</span></div>
         <div class="step-right"><h3>Hỗ trợ ngày phỏng vấn</h3><p>Nhắc lịch, checklist giấy tờ cần mang, hướng dẫn quy trình tại Lãnh sự quán và tư vấn xử lý mọi tình huống phát sinh.</p></div>
       </div>
       <div class="step-row">
-        <div class="step-left"><div class="step-left-img"><img src="assets/s6.jpg" alt="Kết quả VISA"></div></div>
+        <div class="step-left"><div class="step-left-img"><img src="assets/s6.webp" alt="Kết quả VISA"></div></div>
         <div class="step-mid"><span class="step-dot">06</span></div>
         <div class="step-right"><h3>Kết quả & hỗ trợ sau VISA</h3><p>Thông báo kết quả nhanh chóng, hướng dẫn nhận VISA, kiểm tra thông tin và tư vấn kế hoạch nhập cảnh Mỹ.</p></div>
       </div>
@@ -2654,7 +2709,7 @@
           <p class="lead">Chúng tôi gộp tất cả vào một gói duy nhất, kể cả phí nộp lên Chính phủ Mỹ.</p>
         </div>
         <div class="pricing-image">
-          <img src="assets/image-2.jpg" alt="Dịch vụ VISA du lịch Mỹ trọn gói">
+          <img src="assets/image-2.webp" alt="Dịch vụ VISA du lịch Mỹ trọn gói">
         </div>
       </div>
       <div class="price-card">
@@ -2753,7 +2808,7 @@
           </ul>
         </div>
         <div class="about-block-img">
-          <img src="assets/quotes-image-2.png" alt="Francis Hùng">
+          <img src="assets/quotes-image-2.webp" alt="Francis Hùng">
         </div>
       </div>
       <div style="margin-top: 28px; padding: 0 0 0 20px; border-left: 3px solid var(--navy);">
